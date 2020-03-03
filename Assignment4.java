@@ -69,16 +69,21 @@ public class KYCForm {
         return range;
     }
 
-    public static void main(String[] args) throws IOException {
-        TestKYCForm testKycForm = new TestKYCForm();
-        testKycForm.test();                         // testing
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
         Logger LOGGER = Logger.getAnonymousLogger();
-        String[] testcases = br.readLine().split(" ");
-        int testcasesRange = Integer.parseInt(testcases[0]);
-        for (int i = 0; i < testcasesRange; i++) {
-            String[] dates = br.readLine().split(" ");
-            LOGGER.info(provideRange(dates));       // printing range
+        try {
+            TestKYCForm testKycForm = new TestKYCForm();
+            testKycForm.test();                         // testing
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String[] testcases = br.readLine().split(" ");
+            int testcasesRange = Integer.parseInt(testcases[0]);
+            for (int i = 0; i < testcasesRange; i++) {
+                String[] dates = br.readLine().split(" ");
+                LOGGER.info(provideRange(dates));       // printing range
+            }
+        }
+        catch(Exception e) {
+            LOGGER.info("Exception " + e);  
         }
     }
 }
